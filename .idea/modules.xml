@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/config-server.iml" filepath="$PROJECT_DIR$/.idea/modules/config-server.iml" group="config-server" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/config-server/config-server_main.iml" filepath="$PROJECT_DIR$/.idea/modules/config-server/config-server_main.iml" group="config-server" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/config-server/config-server_test.iml" filepath="$PROJECT_DIR$/.idea/modules/config-server/config-server_test.iml" group="config-server" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/order-service/order-service.iml" filepath="$PROJECT_DIR$/.idea/modules/order-service/order-service.iml" group="order-service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/order-service/order-service_main.iml" filepath="$PROJECT_DIR$/.idea/modules/order-service/order-service_main.iml" group="order-service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/order-service/order-service_test.iml" filepath="$PROJECT_DIR$/.idea/modules/order-service/order-service_test.iml" group="order-service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/search-service/search-service.iml" filepath="$PROJECT_DIR$/.idea/modules/search-service/search-service.iml" group="search-service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/search-service/search-service_main.iml" filepath="$PROJECT_DIR$/.idea/modules/search-service/search-service_main.iml" group="search-service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/search-service/search-service_test.iml" filepath="$PROJECT_DIR$/.idea/modules/search-service/search-service_test.iml" group="search-service" />
+      <module fileurl="file://$PROJECT_DIR$/web-shop.iml" filepath="$PROJECT_DIR$/web-shop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../web-shop-config-repo/web-shop-config-repo.iml" filepath="$PROJECT_DIR$/../web-shop-config-repo/web-shop-config-repo.iml" />
+    </modules>
+  </component>
+</project>
