@@ -1,6 +1,7 @@
 package org.webshop.searchservice.repository;
 
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
@@ -14,5 +15,6 @@ public interface ProductRepository extends PagingAndSortingRepository<Product, L
 
     List<Product> findByName(@Param("name") String name);
 
-    List<Product> findByCategory(@Param("category") ProductCategory category);
+    @Query("select p from Product p where p.category.id = :category")
+    List<Product> findByCategory(@Param("category") long categoryId);
 }
