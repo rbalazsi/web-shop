@@ -1,16 +1,10 @@
-package org.webshop.searchservice;
+package com.webshop.searchservice;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.webshop.searchservice.entity.Product;
-import org.webshop.searchservice.entity.ProductCategory;
-import org.webshop.searchservice.repository.ProductCategoryRepository;
-import org.webshop.searchservice.util.DummyDataGenerator;
-
-import java.util.HashSet;
-import java.util.Set;
+import com.webshop.searchservice.util.DummyDataGenerator;
 
 @SpringBootApplication
 public class SearchServiceApplication implements CommandLineRunner {

@@ -1,10 +1,10 @@
-package org.webshop.searchservice.util;
+package com.webshop.searchservice.util;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.webshop.searchservice.entity.Product;
-import org.webshop.searchservice.entity.ProductCategory;
-import org.webshop.searchservice.repository.ProductCategoryRepository;
+import com.webshop.searchservice.entity.Product;
+import com.webshop.searchservice.entity.ProductCategory;
+import com.webshop.searchservice.repository.ProductCategoryRepository;
 
 import java.util.HashSet;
 import java.util.Set;

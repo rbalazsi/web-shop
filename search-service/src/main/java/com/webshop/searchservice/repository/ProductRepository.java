@@ -1,11 +1,11 @@
-package org.webshop.searchservice.repository;
+package com.webshop.searchservice.repository;
 
 
+import com.webshop.searchservice.entity.Product;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
-import org.webshop.searchservice.entity.Product;
 
 import java.util.List;
 

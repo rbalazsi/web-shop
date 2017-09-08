@@ -3,4 +3,5 @@ rootProject.name = "web-shop"
 include 'order-service'
 include 'search-service'
 include 'config-server'
+include 'web-portal'
 

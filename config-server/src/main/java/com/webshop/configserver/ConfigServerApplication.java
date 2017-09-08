@@ -1,4 +1,4 @@
-package order.webshop.configserver;
+package com.webshop.configserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
