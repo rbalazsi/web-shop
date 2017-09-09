@@ -1,4 +1,4 @@
-package com.webshop.searchservice.entity;
+package com.webshop.catalogservice.entity;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;

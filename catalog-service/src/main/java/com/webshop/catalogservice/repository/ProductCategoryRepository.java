@@ -1,7 +1,7 @@
-package com.webshop.searchservice.repository;
+package com.webshop.catalogservice.repository;
 
 
-import com.webshop.searchservice.entity.ProductCategory;
+import com.webshop.catalogservice.entity.ProductCategory;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;

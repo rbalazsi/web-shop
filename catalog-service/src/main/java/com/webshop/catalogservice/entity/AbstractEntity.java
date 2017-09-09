@@ -1,4 +1,4 @@
-package com.webshop.searchservice.entity;
+package com.webshop.catalogservice.entity;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

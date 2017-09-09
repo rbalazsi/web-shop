@@ -1,13 +1,13 @@
-package com.webshop.searchservice;
+package com.webshop.catalogservice;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import com.webshop.searchservice.util.DummyDataGenerator;
+import com.webshop.catalogservice.util.DummyDataGenerator;
 
 @SpringBootApplication
-public class SearchServiceApplication implements CommandLineRunner {
+public class CatalogServiceApplication implements CommandLineRunner {
 
     private static final String GEN_PARAM = "generate";
 
@@ -15,7 +15,7 @@ public class SearchServiceApplication implements CommandLineRunner {
     private DummyDataGenerator generator;
 
     public static void main(String[] args) {
-        SpringApplication.run(SearchServiceApplication.class, args);
+        SpringApplication.run(CatalogServiceApplication.class, args);
     }
 
     @Override
