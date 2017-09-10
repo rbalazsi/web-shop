@@ -15,15 +15,19 @@ public class Product extends AbstractEntity {
     private ProductCategory category;
 
     private String name;
+    private String specs;
+    private String imageFile;
     private double price;
 
     public Product() {
         // needed for JPA
     }
 
-    public Product(ProductCategory category, String name, double price) {
+    public Product(ProductCategory category, String name, String specs, String imageFile, double price) {
         this.category = category;
         this.name = name;
+        this.specs = specs;
+        this.imageFile = imageFile;
         this.price = price;
     }
 
@@ -51,11 +55,29 @@ public class Product extends AbstractEntity {
         this.price = price;
     }
 
+    public String getSpecs() {
+        return specs;
+    }
+
+    public void setSpecs(String specs) {
+        this.specs = specs;
+    }
+
+    public String getImageFile() {
+        return imageFile;
+    }
+
+    public void setImageFile(String imageFile) {
+        this.imageFile = imageFile;
+    }
+
     @Override
     public int hashCode() {
         return new HashCodeBuilder()
                 .append(category)
                 .append(name)
+                .append(specs)
+                .append(imageFile)
                 .append(price)
                 .hashCode();
     }
@@ -72,6 +94,8 @@ public class Product extends AbstractEntity {
                 .appendSuper(super.equals(obj))
                 .append(category, rhs.category)
                 .append(name, rhs.name)
+                .append(specs, rhs.specs)
+                .append(imageFile, rhs.imageFile)
                 .append(price, rhs.price)
                 .isEquals();
     }

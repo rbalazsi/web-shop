@@ -1,0 +1,51 @@
+package com.webshop.webportal.controller;
+
+import com.webshop.webportal.model.product.Product;
+import com.webshop.webportal.model.product.ProductCategory;
+import com.webshop.webportal.model.product.ProductRegistry;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.hateoas.Resources;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.client.RestTemplate;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+@Controller
+@SessionAttributes("ShoppingCart")
+public class HomeController {
+
+    @Autowired
+    RestTemplate restTemplate;
+
+    @RequestMapping("/")
+    public String index(Model model, @RequestParam(value = "cat", required = false) Long catId) {
+        ResponseEntity<Resources<ProductCategory>> categoryEntities = restTemplate.exchange("http://localhost:9000/categories",
+                HttpMethod.GET, null, new ParameterizedTypeReference<Resources<ProductCategory>>() {});
+        List<ProductCategory> categories = new ArrayList<>(categoryEntities.getBody().getContent());
+        if (catId != null) {
+            Optional<ProductCategory> category = categories.stream().filter(cat -> cat.getId() == catId.longValue()).findFirst();
+            category.ifPresent(productCategory -> productCategory.setSelected(true));
+        }
+
+        String productsUrl = (catId != null) ? "http://localhost:9000/categories/" + catId + "/products" :
+                "http://localhost:9000/products";
+
+        ResponseEntity<Resources<Product>> productEntities = restTemplate.exchange(productsUrl,
+                HttpMethod.GET, null, new ParameterizedTypeReference<Resources<Product>>() {});
+        List<Product> products = new ArrayList<>(productEntities.getBody().getContent());
+        products.forEach(ProductRegistry::registerProduct);
+
+        model.addAttribute("categories", categories);
+        model.addAttribute("products", products);
+        return "index";
+    }
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>Web Shop - Product catalog</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" th:href="@{/css/vendor/bootstrap.min.css}" href="../static/css/vendor/bootstrap.min.css"/>
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" th:href="@{/css/shop-item.css}" href="../static/css/shop-item.css"/>
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" th:href="@{/}">Web Shop</a>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/cart}">My Shopping Cart</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-lg-3">
+            <h2 class="my-4">Product Catalog</h2>
+            <div class="list-group" th:each="cat : ${categories}">
+                <div th:if="${cat.selected}"><a th:href="@{/(cat=${cat.id})}" class="list-group-item active" th:text="${cat.name}"></a></div>
+                <div th:if="!${cat.selected}"><a th:href="@{/(cat=${cat.id})}" class="list-group-item" th:text="${cat.name}"></a></div>
+            </div>
+        </div>
+        <!-- /.col-lg-3 -->
+
+        <div class="col-lg-9">
+
+            <div class="card mt-4" th:each="prod : ${products}">
+                <div class="card-body row">
+                    <div class="col-lg-3">
+                        <img class="img-fluid product-photo" th:src="'http://localhost:9000/media/' + ${prod.imageFile}" alt=""/>
+                    </div>
+                    <div class="col-lg-9">
+                        <h3 class="card-title" th:text="${prod.name}"></h3>
+                        <h4 th:text="${prod.price} + ' RON'"></h4>
+                        <p class="card-text" th:text="${prod.specs}"></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 text-right">
+                        <form method="post" action="#" th:action="@{/addToCart/{id}(id=${prod.id})}">
+                            <button type="submit" class="btn btn-success btn-lg">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- /.card -->
+
+        </div>
+        <!-- /.col-lg-9 -->
+
+    </div>
+
+</div>
+<!-- /.container -->
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Web Shop 2017</p>
+    </div>
+    <!-- /.container -->
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" th:href="@{/js/vendor/jquery.min.js}" src="../js/vendor/jquery.min.js"></script>
+<script type="text/javascript" th:href="@{/js/vendor/popper.min.js}" src="../js/vendor/popper.min.js"></script>
+<script type="text/javascript" th:href="@{/js/vendor/bootstrap.min.js}" src="../js/vendor/bootstrap.min.js"></script>
+
+</body>
+
+</html>

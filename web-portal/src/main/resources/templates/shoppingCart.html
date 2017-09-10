@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>Web Shop - Shopping Cart</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" th:href="@{/css/vendor/bootstrap.min.css}" href="../static/css/vendor/bootstrap.min.css"/>
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" th:href="@{/css/shop-item.css}" href="../static/css/shop-item.css"/>
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" th:href="@{/}">Web Shop</a>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/cart}">My Shopping Cart</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center" >
+            <h2 class="my-4">Shopping Cart</h2>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-lg-9">
+
+            <div class="card mt-4" th:each="item : ${shoppingList}">
+                <div class="card-body row">
+                    <div class="col-lg-8">
+                        <h3 class="card-title" th:text="${item.name}"></h3>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <h3 class="text" th:text="${item.quantity}"></h3>
+                    </div>
+
+                    <div class="col-lg-2">
+                        <h3 class="text" th:text="${item.totalPrice}"></h3>
+                    </div>
+                </div>
+            </div>
+            <!-- /.card -->
+
+            <div class="card mt-4">
+                <div class="card-body row total-line">
+                    <div class="col-lg-8">
+                        <h3 class="card-title">TOTAL:</h3>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <h3 class="text" th:text="${totalPrice} + ' RON'"></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.col-lg-9 -->
+
+        <div class="card-body row">
+            <form method="post" th:object="${ShoppingCart}" action="#" th:action="@{/placeOrder}">
+                <div class="col-lg-3">
+                    <h3>Email: </h3>
+                </div>
+                <div class="col-lg-6">
+                    <input type="text" th:field="*{customerEmail}" />
+                </div>
+                <div class="col-lg-3 text-right">
+                    <button type="submit" class="btn btn-success btn-lg my-4">Place order</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+<!-- /.container -->
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Web Shop 2017</p>
+    </div>
+    <!-- /.container -->
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" th:href="@{/js/vendor/jquery.min.js}" src="../js/vendor/jquery.min.js"></script>
+<script type="text/javascript" th:href="@{/js/vendor/popper.min.js}" src="../js/vendor/popper.min.js"></script>
+<script type="text/javascript" th:href="@{/js/vendor/bootstrap.min.js}" src="../js/vendor/bootstrap.min.js"></script>
+
+</body>
+
+</html>
