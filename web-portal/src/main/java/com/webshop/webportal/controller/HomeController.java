@@ -1,9 +1,11 @@
 package com.webshop.webportal.controller;
 
+import com.webshop.webportal.config.CatalogServiceRibbonConfig;
 import com.webshop.webportal.model.product.Product;
 import com.webshop.webportal.model.product.ProductCategory;
 import com.webshop.webportal.model.product.ProductRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.hateoas.Resources;
 import org.springframework.http.HttpMethod;
@@ -21,14 +23,18 @@ import java.util.Optional;
 
 @Controller
 @SessionAttributes("ShoppingCart")
+@RibbonClient(name = "catalog-service", configuration = CatalogServiceRibbonConfig.class)
 public class HomeController {
+
+    private static final String CAT_SERVICE_BASE_URL = "http://localhost:9000";
+//    private static final String CAT_SERVICE_BASE_URL = "http://catalog-service";
 
     @Autowired
     RestTemplate restTemplate;
 
     @RequestMapping("/")
     public String index(Model model, @RequestParam(value = "cat", required = false) Long catId) {
-        ResponseEntity<Resources<ProductCategory>> categoryEntities = restTemplate.exchange("http://localhost:9000/categories",
+        ResponseEntity<Resources<ProductCategory>> categoryEntities = restTemplate.exchange(CAT_SERVICE_BASE_URL + "/categories",
                 HttpMethod.GET, null, new ParameterizedTypeReference<Resources<ProductCategory>>() {});
         List<ProductCategory> categories = new ArrayList<>(categoryEntities.getBody().getContent());
         if (catId != null) {
@@ -36,8 +42,8 @@ public class HomeController {
             category.ifPresent(productCategory -> productCategory.setSelected(true));
         }
 
-        String productsUrl = (catId != null) ? "http://localhost:9000/categories/" + catId + "/products" :
-                "http://localhost:9000/products";
+        String productsUrl = (catId != null) ? CAT_SERVICE_BASE_URL + "/categories/" + catId + "/products" :
+                CAT_SERVICE_BASE_URL + "/products";
 
         ResponseEntity<Resources<Product>> productEntities = restTemplate.exchange(productsUrl,
                 HttpMethod.GET, null, new ParameterizedTypeReference<Resources<Product>>() {});
