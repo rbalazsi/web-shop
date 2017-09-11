@@ -1,0 +1,20 @@
+# Eureka client configuration
+eureka:
+  client:
+    registerWithEureka: false
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+# Load balancer
+#catalog-service:
+#  ribbon:
+#    DeploymentContextBasedVipAddresses: catalog-service
+#    NIWSServerListClassName: com.netflix.niws.loadbalancer.DiscoveryEnabledNIWSServerList
+
+# Zuul configuration
+zuul:
+  prefix: /api
+  routes:
+    catalog:
+      path: /catalog/**
+      serviceId: catalog-service

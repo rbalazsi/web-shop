@@ -1,10 +1,15 @@
 package com.webshop.webportal.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.webshop.webportal.model.order.Order;
+import com.webshop.webportal.model.order.OrderItem;
 import com.webshop.webportal.model.product.Product;
 import com.webshop.webportal.model.product.ProductRegistry;
 import com.webshop.webportal.model.shopping.ShoppingCart;
 import com.webshop.webportal.model.shopping.ShoppingItem;
+import com.webshop.webportal.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,13 +23,15 @@ import org.springframework.web.client.RestTemplate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Controller
 @SessionAttributes("ShoppingCart")
 public class ShoppingCartController {
 
     @Autowired
-    private RestTemplate restTemplate;
+    private OrderService orderService;
 
     @ModelAttribute("ShoppingCart")
     public ShoppingCart getShoppingCart() {
@@ -57,9 +64,9 @@ public class ShoppingCartController {
 
     @RequestMapping(value = "/placeOrder", method = RequestMethod.POST)
     public String placeOrder(@ModelAttribute("ShoppingCart") ShoppingCart cart, SessionStatus sessionStatus) {
-        //TODO: invoke order service
+        Order postedOrder = orderService.postOrderFromShoppingCart(cart);
 
         sessionStatus.setComplete();
-        return "redirect:/orderPlaced";
+        return "redirect:/orderPlaced?success=" + (postedOrder != null);
     }
 }

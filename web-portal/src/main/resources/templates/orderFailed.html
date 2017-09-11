@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>Web Shop - Order Failed</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" th:href="@{/css/vendor/bootstrap.min.css}" href="../static/css/vendor/bootstrap.min.css"/>
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" th:href="@{/css/shop-item.css}" href="../static/css/shop-item.css"/>
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" th:href="@{/}">Web Shop</a>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/cart}">My Shopping Cart</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center" >
+            <h2 class="my-4 text-danger">Order failed. Our ordering service is experiencing downtime.</h2>
+        </div>
+    </div>
+</div>
+<!-- /.container -->
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Web Shop 2017</p>
+    </div>
+    <!-- /.container -->
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" th:href="@{/js/vendor/jquery.min.js}" src="../js/vendor/jquery.min.js"></script>
+<script type="text/javascript" th:href="@{/js/vendor/popper.min.js}" src="../js/vendor/popper.min.js"></script>
+<script type="text/javascript" th:href="@{/js/vendor/bootstrap.min.js}" src="../js/vendor/bootstrap.min.js"></script>
+
+</body>
+
+</html>

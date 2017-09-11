@@ -6,6 +6,15 @@ public class OrderItem {
     private Long product;
     private int quantity;
 
+    public OrderItem() {
+        // empty
+    }
+
+    public OrderItem(Long product, int quantity) {
+        this.product = product;
+        this.quantity = quantity;
+    }
+
     public Long getProduct() {
         return product;
     }

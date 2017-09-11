@@ -5,4 +5,5 @@ include 'config-server'
 include 'order-service'
 include 'web-portal'
 include 'eureka-server'
+include 'api-gateway'
 
