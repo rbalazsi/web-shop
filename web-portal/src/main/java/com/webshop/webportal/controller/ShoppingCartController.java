@@ -8,6 +8,7 @@ import com.webshop.webportal.model.product.ProductRegistry;
 import com.webshop.webportal.model.shopping.ShoppingCart;
 import com.webshop.webportal.model.shopping.ShoppingItem;
 import com.webshop.webportal.service.OrderService;
+import com.webshop.webportal.service.OrderService_Feign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
@@ -32,6 +33,7 @@ public class ShoppingCartController {
 
     @Autowired
     private OrderService orderService;
+//    private OrderService_Feign orderService;
 
     @ModelAttribute("ShoppingCart")
     public ShoppingCart getShoppingCart() {

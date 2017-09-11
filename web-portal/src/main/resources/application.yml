@@ -5,6 +5,13 @@
 #      enabled: false
 #    listOfServers: localhost:9000,localhost:9001,localhost:9002
 #    ServerListRefreshInterval: 15000
+#
+#order-service:
+#  ribbon:
+#    eureka:
+#      enabled: false
+#    listOfServers: localhost:9100,localhost:9101
+#    ServerListRefreshInterval: 15000
 
 
 # Eureka client configuration
@@ -23,9 +30,9 @@ eureka:
 
 
 # Hystrix configuration
-#hystrix:
-#  command:
-#    default:
-#      circuitBreaker:
-#        requestVolumeThreshold: 3
-#        sleepWindowInMilliseconds: 5000
+hystrix:
+  command:
+    default:
+      circuitBreaker:
+        requestVolumeThreshold: 3
+        sleepWindowInMilliseconds: 5000

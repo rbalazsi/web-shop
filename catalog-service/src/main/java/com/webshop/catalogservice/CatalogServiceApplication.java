@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.webshop.catalogservice.util.DummyDataGenerator;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
-@EnableEurekaClient
+//@EnableEurekaClient
 @SpringBootApplication
 public class CatalogServiceApplication implements CommandLineRunner {
 

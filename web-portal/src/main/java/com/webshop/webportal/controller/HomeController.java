@@ -1,6 +1,6 @@
 package com.webshop.webportal.controller;
 
-import com.webshop.webportal.config.CatalogServiceRibbonConfig;
+import com.webshop.webportal.config.RibbonConfig;
 import com.webshop.webportal.model.product.Product;
 import com.webshop.webportal.model.product.ProductCategory;
 import com.webshop.webportal.model.product.ProductRegistry;
@@ -23,7 +23,7 @@ import java.util.Optional;
 
 @Controller
 @SessionAttributes("ShoppingCart")
-@RibbonClient(name = "catalog-service", configuration = CatalogServiceRibbonConfig.class)
+@RibbonClient(name = "catalog-service", configuration = RibbonConfig.class)
 public class HomeController {
 
     private static final String CAT_SERVICE_BASE_URL = "http://localhost:9000";

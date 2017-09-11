@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 
 /**
- * Ribbon configuration holder for the Catalog Service instances.
+ * Ribbon configuration holder.
  */
-public class CatalogServiceRibbonConfig {
+public class RibbonConfig {
 
     @Autowired
     IClientConfig ribbonClientConfig;

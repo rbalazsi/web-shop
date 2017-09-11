@@ -1,25 +1,18 @@
-package com.webshop.webportal.model.order;
+package com.webshop.orderservice.entity;
 
+import javax.persistence.Entity;
 
-public class OrderItem {
+@Entity
+public class OrderItem extends AbstractEntity {
 
     private Long productId;
     private int quantity;
-
-    public OrderItem() {
-        // empty
-    }
-
-    public OrderItem(Long productId, int quantity) {
-        this.productId = productId;
-        this.quantity = quantity;
-    }
 
     public Long getProductId() {
         return productId;
     }
 
-    public void setProductId(Long product) {
+    public void setProductId(Long productId) {
         this.productId = productId;
     }
 

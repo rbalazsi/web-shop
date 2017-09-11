@@ -11,10 +11,10 @@ import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboar
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
-@EnableEurekaClient
-@EnableFeignClients
-@EnableCircuitBreaker
-@EnableHystrixDashboard
+//@EnableEurekaClient
+//@EnableFeignClients
+//@EnableCircuitBreaker
+//@EnableHystrixDashboard
 @SpringBootApplication
 public class WebPortalApplication {
 

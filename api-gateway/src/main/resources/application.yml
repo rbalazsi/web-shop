@@ -5,16 +5,17 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 
-# Load balancer
-#catalog-service:
-#  ribbon:
-#    DeploymentContextBasedVipAddresses: catalog-service
-#    NIWSServerListClassName: com.netflix.niws.loadbalancer.DiscoveryEnabledNIWSServerList
 
 # Zuul configuration
 zuul:
   prefix: /api
+  host:
+    connect-timeout-millis: 10000
+    socket-timeout-millis: 10000
   routes:
     catalog:
       path: /catalog/**
       serviceId: catalog-service
+    order:
+      path: /order/**
+      serviceId: order-service
