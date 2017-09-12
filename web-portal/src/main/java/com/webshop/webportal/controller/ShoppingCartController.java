@@ -32,8 +32,8 @@ import java.util.stream.Collectors;
 public class ShoppingCartController {
 
     @Autowired
-    private OrderService orderService;
-//    private OrderService_Feign orderService;
+//    private OrderService orderService;
+    private OrderService_Feign orderService;
 
     @ModelAttribute("ShoppingCart")
     public ShoppingCart getShoppingCart() {

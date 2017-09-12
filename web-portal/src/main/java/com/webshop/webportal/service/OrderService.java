@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Service
+//@Service
 @RibbonClient(name = "order-service", configuration = RibbonConfig.class)
 public class OrderService {
 

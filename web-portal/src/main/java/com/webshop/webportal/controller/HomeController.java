@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Controller
+//@Controller
 @SessionAttributes("ShoppingCart")
 @RibbonClient(name = "catalog-service", configuration = RibbonConfig.class)
 public class HomeController {

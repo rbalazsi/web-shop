@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-//@Controller
+@Controller
 @SessionAttributes("ShoppingCart")
 public class HomeController_Feign {
 
