@@ -1,6 +1,6 @@
-package com.webshop.catalogservice.config;
+package com.webshop.orderservice.config;
 
-import com.webshop.catalogservice.CatalogServiceApplication;
+import com.webshop.orderservice.OrderServiceApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -13,25 +13,26 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@EnableSwagger2
 @Configuration
+@EnableSwagger2
 @Import(springfox.documentation.spring.data.rest.configuration.SpringDataRestConfiguration.class)
 public class SwaggerConfiguration {
 
+    // TODO: make it work for OrderRepository
+
     @Bean
-    public Docket apiDpc() {
-        return new Docket(DocumentationType.SWAGGER_2)
+    public Docket apiDoc() {
+        return new Docket(DocumentationType.SWAGGER_12)
                 .select()
-//                .apis(RequestHandlerSelectors.any())
-                .apis(RequestHandlerSelectors.basePackage(CatalogServiceApplication.class.getPackage().getName()))
+                .apis(RequestHandlerSelectors.basePackage(OrderServiceApplication.class.getPackage().getName()))
                 .paths(PathSelectors.any())
                 .build()
-                .apiInfo(buildMetaData());
+                .apiInfo(buildMetadata());
     }
 
-    private ApiInfo buildMetaData() {
+    private ApiInfo buildMetadata() {
         return new ApiInfoBuilder()
-                .title("Catalog Service - REST API documentation")
+                .title("Order Service - REST API documentation")
                 .version("v0.1")
                 .contact(new Contact("Robert Balazsi", "http://robertbalazsi.com", "contact@robertbalazsi.com"))
                 .build();
