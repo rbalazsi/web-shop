@@ -1,0 +1,21 @@
+1. Document the APIs using Swagger
+
+2. Implement customer-notification-service for demonstrating asynchronous processing
+  - use Spring Cloud Stream with AMQP/RabbitMQ binder
+  - send a notification email to the customer with the list of items he just ordered
+
+3. Simulate real-world scenario
+  - add 100 more products
+  - implement paging of products
+  - implement validation of customer email address
+  - fix UI errors (null order, etc.)
+
+4. Introduce JMeter for load testing
+  - come up with ideas/strategies for test packs that reflect real-world scenarios (n search requests / sec, etc.)
+  - implement test packs for them
+  - demonstrate the scalability of the system, the advantage of load balancing, etc.
+
+5. Containerize the services using Docker
+
+6. Auto-scale the services with Marathon and Mesos
+  - use JMeter to trigger scaling up automatically on high load, scaling down on lower load
