@@ -1,6 +1,5 @@
 package com.webshop.orderservice.config;
 
-import com.webshop.orderservice.OrderServiceApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -18,14 +17,12 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Import(springfox.documentation.spring.data.rest.configuration.SpringDataRestConfiguration.class)
 public class SwaggerConfiguration {
 
-    // TODO: make it work for OrderRepository
-
     @Bean
     public Docket apiDoc() {
         return new Docket(DocumentationType.SWAGGER_12)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage(OrderServiceApplication.class.getPackage().getName()))
-                .paths(PathSelectors.any())
+                .apis(RequestHandlerSelectors.any())
+                .paths(PathSelectors.ant("/api/**"))
                 .build()
                 .apiInfo(buildMetadata());
     }

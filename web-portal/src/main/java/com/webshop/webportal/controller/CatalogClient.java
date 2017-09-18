@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @FeignClient("http://catalog-service")
 public interface CatalogClient {
 
-    @RequestMapping(method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE, value = "/categories")
+    @RequestMapping(method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE, value = "/api/categories")
     Resources<ProductCategory> getCategories();
 
-    @RequestMapping(method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE, value = "/products")
+    @RequestMapping(method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE, value = "/api/products")
     Resources<Product> getAllProducts();
 
-    @RequestMapping(method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE, value = "/categories/{catId}/products")
+    @RequestMapping(method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE, value = "/api/categories/{catId}/products")
     Resources<Product> getProductsOfCategory(@PathVariable("catId") Long categoryId);
 }

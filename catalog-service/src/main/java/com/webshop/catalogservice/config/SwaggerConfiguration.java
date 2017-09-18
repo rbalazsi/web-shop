@@ -1,6 +1,5 @@
 package com.webshop.catalogservice.config;
 
-import com.webshop.catalogservice.CatalogServiceApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -19,12 +18,11 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConfiguration {
 
     @Bean
-    public Docket apiDpc() {
+    public Docket apiDoc() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-//                .apis(RequestHandlerSelectors.any())
-                .apis(RequestHandlerSelectors.basePackage(CatalogServiceApplication.class.getPackage().getName()))
-                .paths(PathSelectors.any())
+                .apis(RequestHandlerSelectors.any())
+                .paths(PathSelectors.ant("/api/**"))
                 .build()
                 .apiInfo(buildMetaData());
     }
